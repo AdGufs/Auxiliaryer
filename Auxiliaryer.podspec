@@ -20,7 +20,7 @@ Pod::Spec.new do |spec|
   }
 
   # 依赖库
-  spec.dependency "CocoaHTTPServer", "~> 2.3"
+  spec.dependency "CocoaHTTPServer", "~> 6.0"
   spec.dependency "ZipArchive", "~> 1.4"
 
   # 预编译框架路径（关键修正！）
