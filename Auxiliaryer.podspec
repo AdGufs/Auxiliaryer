@@ -1,29 +1,31 @@
 Pod::Spec.new do |spec|
+  # 基础配置
+  spec.name         = "Auxiliaryer"
+  spec.version      = "1.0.0"
+  spec.license      = { :type => "MIT", :file => "LICENSE" }
+  spec.homepage     = "https://github.com/AdGufs/Auxiliaryer"
+  spec.authors      = { "AdGufs" => "jianhui_ok@qq.com" }
+  spec.summary      = "iOS辅助工具库"
+  spec.description  = <<-DESC
+    iOS辅助工具库，集成HTTP服务器和压缩功能
+  DESC
 
-       spec.name ="Auxiliaryer"
+  # 平台配置
+  spec.ios.deployment_target = "14.0"  # 统一使用此写法
 
-       spec.version ="1.0.0"
+  # 源码配置
+  spec.source       = {
+    :git => "https://github.com/AdGufs/Auxiliaryer.git",
+    :tag => "v#{spec.version}"  # 确保远程存在 v1.0.0 标签
+  }
 
-       spec.license ="MIT"
+  # 依赖库
+  spec.dependency "CocoaHTTPServer", "~> 2.3"
+  spec.dependency "ZipArchive", "~> 1.4"
 
-       spec.homepage ="https://github.com/AdGufs/Auxiliaryer"
+  # 预编译框架路径（关键修正！）
+  spec.vendored_frameworks = "Auxiliaryer.framework"  # 根据实际位置调整
 
-       spec.author ="Auxiliaryer"
-
-       spec.summary ="Auxiliaryerdec"
-
-       spec.ios.deployment_target ="14.0"
-
-       spec.source = {:git => "https://github.com/AdGufs/Auxiliaryer.git", :tag => "v#{spec.version}" }
-
-       spec.frameworks ="Auxiliaryer"
-
-       spec.ios.vendored_frameworks ="Frameworks/Auxiliaryer.framework"
-
-       spec.dependency"CocoaHTTPServer", "2.3"
-
-       spec.dependency"MBProgressHUD", "1.4.0"
-
-       spec.xcconfig = {"HEADER search paths" => "$(PODS_HEADER_SEARCH_PATHS)" }
-
-     end
+  # 系统框架
+  spec.frameworks = "UIKit", "Foundation"
+end
