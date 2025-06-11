@@ -1,0 +1,6 @@
+framework module Auxiliaryer {
+  umbrella header "Auxiliaryer.h"
+  export *
+
+  module * { export * }
+}
